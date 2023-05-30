@@ -1,0 +1,42 @@
+.App {
+    text-align: center;
+    padding: 20px;
+    background-color: rgb(172, 240, 172);
+  }
+  
+  .game-board {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .card {
+    width: 80px;
+    height: 80px;
+    background-color: #e5f86c;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    font-weight: bold;
+    margin: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  .card:hover {
+    background-color: #ede9a7;
+  }
+  
+  .card.flipped {
+    background-color: #33d8c7;
+    color: #ffffff;
+  }
+  
+  h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+  }
+  

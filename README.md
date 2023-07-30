@@ -23,6 +23,15 @@ This is a simple memory game built using React, where players test their memory 
 - Move counter to track the number of moves made by the player.
 - Winning message once all pairs are matched.
 
+## How to Play
+- Click on a card to reveal the image hidden on the other side.
+- Click on another card to find its matching pair.
+- Keep flipping cards until you find all the matching pairs.
+- The game ends when all pairs are successfully matched.
+  
+## Website
+- You can play the Memory Game by visiting the following link: https://react-memory-game1234.netlify.app/
+
 ## Installation
 
 To run the Memory Game locally on your machine, follow these steps:

@@ -10,14 +10,21 @@ function App() {
   const [isGameComplete, setIsGameComplete] = useState(false);
   const [intervalId, setIntervalId] = useState(null);
 
+  // generateRandomCards Function: This function generates an array of numbers representing the card values. It ensures that there are pairs of each number (matching cards), shuffles them randomly, and returns the shuffled array.
+
   const generateRandomCards = () => {
     const numbers = Array.from({ length: 32 }, (_, index) => Math.floor(index / 2) + 1);
     const shuffledNumbers = numbers.sort(() => Math.random() - 0.5);
     return shuffledNumbers;
   };
 
+  //cards State Variable: The cards variable is initialized using useMemo. It contains the shuffled card values for the game and is memoized to prevent unnecessary re-computation.
   const cards = useMemo(() => generateRandomCards(), []);
 
+
+  //handleCardClick Function:This function is called when a card is clicked. It checks if the game is complete or if the clicked card is already flipped or matched.
+  //If not, it handles the card click:Adds the card index to the flippedCards array.
+  //If it's the first move, it starts the game timer.
   const handleCardClick = (cardIndex) => {
     if (isGameComplete || flippedCards.includes(cardIndex) || matchedCards.includes(cardIndex)) return;
 
@@ -33,6 +40,11 @@ function App() {
     }
   };
 
+
+  //startTimer Function:
+  //This function starts a timer that increments the timer state every second and returns the timer interval ID.
+
+  
   const startTimer = () => {
     const id = setInterval(() => {
       setTimer((prevTimer) => prevTimer + 1);
@@ -40,6 +52,9 @@ function App() {
     return id;
   };
 
+
+  //useEffect for Matching Cards:
+//This useEffect watches for changes in flippedCards. When two cards are flipped, it checks if they match (have the same value). If they do, it updates the score and marks them as matched. If not, it flips them back after a delay.
   useEffect(() => {
     // Check if all cards are matched and stop the timer
     if (matchedCards.length === cards.length) {
@@ -67,6 +82,8 @@ function App() {
     }
   }, [flippedCards, cards]);
 
+
+  //showCongratulations Function: This function displays an alert message when the game is completed, informing the player that they've matched all the cards.
   const showCongratulations = () => {
     alert("Congratulations! You matched all cards!");
   };
